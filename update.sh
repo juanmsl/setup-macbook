@@ -92,6 +92,13 @@ if [ "${answer}" == "yes" ]; then
 
   cout "Installing HomeBrew Cask Programs"
   brew install --cask notion pycharm google-chrome 1password figma iterm2
+
+  cout "Copying iTerm2 configuration files"
+  cp ./itermconfig/iterm2.preferences "$HOME/Documents/com.googlecode.iterm2.plist"
+  cp ./itermconfig/ItermProfile.json "$HOME/Desktop/ItermProfile.json"
+
+  cout "Opening Google Chrome"
+  open -a "Google Chrome" --args --make-default-browser
 fi
 
 confirm "Setup MO configuration?"
