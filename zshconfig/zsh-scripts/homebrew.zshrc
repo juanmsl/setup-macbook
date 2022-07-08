@@ -1,0 +1,1 @@
+eval "$($(which brew) shellenv)"

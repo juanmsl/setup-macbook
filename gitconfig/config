@@ -1,0 +1,7 @@
+[user]
+  name = Juan Sánchez
+  email = juanmsl.pk@gmail.com
+
+[pull]
+  rebase = false
+

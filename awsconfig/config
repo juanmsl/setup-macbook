@@ -1,0 +1,96 @@
+[profile mo-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::238073932035:role/MOAdmins
+
+[profile mopayu-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::523187866919:role/MOAdmins
+
+[profile mousa-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::197573047465:role/MOAdmins
+
+[profile mocolombia-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::463919770636:role/MOAdmins
+
+[profile moperu-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::937280411572:role/MOAdmins
+
+[profile moargentina-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::558530193352:role/MOAdmins
+
+[profile momexico-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::831891394491:role/MOAdmins
+
+[profile mobrasil-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::921170465496:role/MOAdmins
+
+[profile momexicoprepaid-development]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::913467237515:role/MOAdmins
+
+[profile momexicoprepaid-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::953658852124:role/MOAdmins
+
+[profile moecuador-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::464583341388:role/MOAdmins
+
+[profile mordominicana-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::716449616760:role/MOAdmins
+
+[profile moglobal-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::400305978232:role/MOAdmins
+
+[profile moproducts-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::397714956806:role/MOAdmins
+
+[profile mosuite-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::709764685156:role/MOAdmins
+
+[profile mosecurity-production]
+azure_tenant_id=d8b66fa1-7c9a-413e-ac74-0aa8ebf6a5fa
+azure_app_id_uri=https://signin.aws.amazon.com/saml
+azure_default_username=juan.sanchez@wearemo.com
+azure_default_duration_hours=12
+azure_default_remember_me=true
