@@ -4,3 +4,5 @@
 2. Uncompress the zip file
 3. Execute script `update.sh`
 4. Done!
+
+> More interesting things [Here](https://www.swyx.io/new-mac-setup/)
