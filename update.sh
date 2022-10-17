@@ -91,7 +91,7 @@ if [ "${answer}" == "yes" ]; then
   nvm use ${answer}
 
   cout "Installing HomeBrew Cask Programs"
-  brew install --cask notion pycharm google-chrome 1password figma iterm2
+  brew install --cask notion jetbrains-toolbox google-chrome 1password figma iterm2
 
   cout "Copying iTerm2 configuration files"
   cp ./itermconfig/iterm2.preferences "$HOME/Documents/com.googlecode.iterm2.plist"
