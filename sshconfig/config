@@ -2,5 +2,9 @@ Host github.com
     HostName github.com
     User git
     IdentityFile ~/.ssh/id_rsa
-    # ssh-keygen -t rsa -b 4096 -C juanmsl -f $HOME/.ssh/id_rsa -N ""
+
+Host gitlab.com
+    HostName gitlab.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
 

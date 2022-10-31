@@ -28,35 +28,11 @@ output=json
 source_profile=mosecurity-production
 role_arn=arn:aws:iam::937280411572:role/MOAdmins
 
-[profile moargentina-production]
-region=us-east-1
-output=json
-source_profile=mosecurity-production
-role_arn=arn:aws:iam::558530193352:role/MOAdmins
-
 [profile momexico-production]
 region=us-east-1
 output=json
 source_profile=mosecurity-production
 role_arn=arn:aws:iam::831891394491:role/MOAdmins
-
-[profile mobrasil-production]
-region=us-east-1
-output=json
-source_profile=mosecurity-production
-role_arn=arn:aws:iam::921170465496:role/MOAdmins
-
-[profile momexicoprepaid-development]
-region=us-east-1
-output=json
-source_profile=mosecurity-production
-role_arn=arn:aws:iam::913467237515:role/MOAdmins
-
-[profile momexicoprepaid-production]
-region=us-east-1
-output=json
-source_profile=mosecurity-production
-role_arn=arn:aws:iam::953658852124:role/MOAdmins
 
 [profile moecuador-production]
 region=us-east-1
@@ -75,6 +51,12 @@ region=us-east-1
 output=json
 source_profile=mosecurity-production
 role_arn=arn:aws:iam::400305978232:role/MOAdmins
+
+[profile mobbva-production]
+region=us-east-1
+output=json
+source_profile=mosecurity-production
+role_arn=arn:aws:iam::928697416100:role/MOAdmins
 
 [profile moproducts-production]
 region=us-east-1

@@ -6,3 +6,22 @@
 4. Done!
 
 > More interesting things [Here](https://www.swyx.io/new-mac-setup/)
+
+---
+
+### Important commands to update
+
+#### Encrypt file
+```bash
+openssl bf -a -salt -in file -out file.encrypt
+```
+
+#### Decrypt file
+```bash
+openssl bf -d -a -in file.encrypt -out file
+```
+
+#### Create ssh key
+```bash
+ssh-keygen -t rsa -b 4096 -C name -f $HOME/.ssh/id_rsa_name -N ""
+```
