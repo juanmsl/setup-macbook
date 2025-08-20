@@ -1,0 +1,19 @@
+[user]
+  name = Juan Sánchez
+  email = juanmsl.pk@gmail.com
+
+[pull]
+  rebase = false
+
+[init]
+	defaultBranch = main
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[commit]
+  gpgsign = true
+

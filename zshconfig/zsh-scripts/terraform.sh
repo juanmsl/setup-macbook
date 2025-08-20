@@ -1,0 +1,13 @@
+export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
+
+alias tf="terraform"
+alias ti="tf init"
+alias ta="tf apply"
+alias td="tf destroy"
+alias to="tf output"
+alias tp="tf plan"
+alias tita="ti && ta"
+alias titp="ti && tp"
+alias tito="ti && to"
+alias titd="ti && td"
+alias tffu="tf force-unlock"
