@@ -9,9 +9,6 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/juanmsl/setup-macbook/refs/heads/master/update.sh)"
 ```
 
-
-> More interesting things [Here](https://www.swyx.io/new-mac-setup/)
-
 ---
 
 ### Important commands to update

@@ -2,22 +2,38 @@
 
 questions=0
 
+# Define color codes
+RED='\033[1;31m'
+GRN='\033[1;32m'
+BLU='\033[1;34m'
+YEL='\033[1;33m'
+PUR='\033[1;35m'
+CYAN='\033[1;36m'
+NC='\033[0m'
+
+copyFile() {
+  local file="${1}"
+  local dest="${2}"
+
+  curl -fsSL https://raw.githubusercontent.com/juanmsl/setup-macbook/refs/heads/master/${file} -o ${dest}
+}
+
 cout() {
-  echo "-----------------------------------------------------------"
-  echo "|--- $*"
+  echo -e "${BLU}-----------------------------------------------------------"
+  echo -e "|---${NC} $*"
   echo ""
 }
 
 confirm() {
   questions=$((questions + 1))
-  echo "-----------------------------------------------------------"
+  echo -e "${PUR}-----------------------------------------------------------${CN}"
   read -rp "|--- (${questions}) $* " answer
   if [ "${answer}" != "yes" ]; then
-    echo "|--- No"
+    echo -e "${RED}|--- No"
   else
-    echo "|--- Yes"
+    echo -e "${GRN}|--- Yes"
   fi
-  echo ""
+  echo -e "${CN}"
 }
 
 ask() {
@@ -27,25 +43,40 @@ ask() {
   echo ""
 }
 
-cout "Creating vimrc"
-echo "syntax on" > "$HOME/.vimrc"
+if [ -f "$HOME/.vimrc" ]; then
+    cout "✅ vimrc already configured"
+else
+    cout "🔄 Creating vimrc"
+    echo "syntax on" > "$HOME/.vimrc"
+fi
 
-cout "Creating git configuration"
-cp ./gitconfig/config "$HOME/.gitconfig"
+if xcode-select -p >/dev/null 2>&1; then
+    cout "✅ Xcode Command Line Tools are installed"
+else
+    cout "🔄 Installing xcode dev tools"
+    xcode-select --install
+fi
+
+if [ -f "$HOME/.gitconfig" ]; then
+    cout "✅ Git config already configured"
+else
+    cout "🔄 Creating git configuration"
+    copyFile gitconfig/config "$HOME/.gitconfig"
+fi
 
 if [[ "$(uname -p)" == "arm" ]]; then
-  if [ $(/usr/bin/pgrep oahd >/dev/null 2>&1;echo $?) -ne 0 ]; then
-    cout "Installing Rosetta in M1"
-    softwareupdate --install-rosetta --agree-to-license
+  if /usr/bin/pgrep oahd >/dev/null 2>&1; then
+    cout "✅ Rosetta already installed"
   else
-    cout "Rosetta already installed"
+    cout "🔄 Installing Rosetta in M1"
+    softwareupdate --install-rosetta --agree-to-license
   fi
 fi
 
-confirm "Should install ZSH?"
-
-if [ "${answer}" == "yes" ]; then
-  cout "Installing ZSH"
+if command -v zsh >/dev/null 2>&1; then
+  cout "✅ zsh already installed"
+else
+  cout "🔄 Installing ZSH"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
@@ -56,8 +87,10 @@ fi
 if [ "${answer}" == "yes" ]; then
   cout "Updating zsh configuration"
   mkdir -p "$HOME/.zsh"
-  cp ./zshconfig/zsh-scripts/* "$HOME/.zsh/"
-  cp ./zshconfig/zshrc "$HOME/.zshrc"
+  for script in aws epic git homebrew node pyenv terraform utility; do
+    copyFile "zshconfig/zsh-scripts/$script.sh" "$HOME/.zsh/$script.sh"
+  done
+  copyFile zshconfig/zshrc "$HOME/.zshrc"
   zsh -c 'source "$HOME/.zshrc"'
 fi
 
@@ -65,7 +98,7 @@ confirm "Should install HomeBrew?"
 
 if [ "${answer}" == "yes" ]; then
   cout "Installing HomeBrew"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval "$($(which brew) shellenv)"
 fi
 
@@ -75,8 +108,8 @@ if [ "${answer}" == "yes" ]; then
   cout "Installing HomeBrew packages"
   brew install tree nvm pnpm
   {
-    echo "source $ZSH_CONFIG_FOLDER/homebrew.sh";
-    echo "source $ZSH_CONFIG_FOLDER/node.sh";
+    echo "source \$ZSH_CONFIG_FOLDER/homebrew.sh";
+    echo "source \$ZSH_CONFIG_FOLDER/node.sh";
   } >> "$HOME/.zshrc"
   zsh -c 'source "$HOME/.zshrc"'
 
